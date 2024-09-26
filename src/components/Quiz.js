@@ -40,6 +40,9 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     width: '35%',
+    '@media (max-width: 600px)': {
+      width: '90%', 
+    },
   },
   button: {
     backgroundColor: 'transparent',
@@ -55,6 +58,9 @@ const styles = {
       backgroundColor: '#000',
       color: '#fff',
     },
+    '@media (max-width: 600px)': {
+      padding: '0.8rem 1.5rem', 
+    },
   },
   correctAnswer: {
     backgroundColor: 'green',
@@ -67,23 +73,36 @@ const styles = {
   correctAnswerText: {
     color: 'green',
     position: 'absolute',
-    top: '67%',
+    top: '25%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    marginTop: '2.4rem',
+    marginButton: '2rem',
+    '@media (max-width: 600px)': {
+      top: '20%', 
+      fontSize: '1.5rem', 
+    },
   },
   incorrectAnswerText: {
     color: 'red',
     position: 'absolute',
-    top: '67%',
+    top: '25%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    marginTop: '2.8rem',
+    marginButton: '2rem',
+    '@media (max-width: 600px)': {
+      top: '20%', 
+      fontSize: '1.5rem', 
+    },
   },
   resultsBox: {
     marginTop: '2rem',
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+    '@media (max-width: 600px)': {
+      marginTop: '1.5rem', 
+    },
   },
 }
 
@@ -157,28 +176,39 @@ const Quiz = () => {
             })}
           </Box>
           {result && (
-            <Typography
-              variant='h6'
-              component='p'
-              sx={{
-                ...(result === 'Correct!'
-                  ? styles.correctAnswerText
-                  : styles.incorrectAnswerText),
-              }}
-            >
-              {result}
-            </Typography>
-          )}
-          <Button
-            variant='contained'
-            color='primary'
-            onClick={handleNextQuestion}
-            sx={styles.nextButton}
-          >
-            {currentQuestionIndex >= questions.length - 1
-              ? 'Show Results'
-              : 'Next Question'}
-          </Button>
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      position: 'relative',
+      
+    }}
+  >
+    <Typography
+      variant='h6'
+      component='label'
+      sx={{
+        ...(result === 'Correct!'
+          ? styles.correctAnswerText
+          : styles.incorrectAnswerText),
+      }}
+    >
+      {result}
+    </Typography>
+    <Button
+      variant='contained'
+      color='primary'
+      onClick={handleNextQuestion}
+      sx={styles.nextButton}
+    >
+      {currentQuestionIndex >= questions.length - 1
+        ? 'Show Results'
+        : 'Next Question'}
+    </Button>
+  </Box>
+)}
+
         </>
       ) : (
         <Box sx={styles.resultsBox}>
