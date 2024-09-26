@@ -7,16 +7,19 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginBottom: '8rem',
     padding: 2,
   },
   nextButton: {
-    marginTop: '5rem',
+    position: 'absolute',
+    whiteSpace: 'nowrap',
+    transform: 'translate(-0%, 90%)',
     backgroundColor: 'transparent',
     border: '1px solid #000',
     borderRadius: 4,
     boxShadow: 6,
     color: 'white',
-    padding: '1rem 2.5rem',
+    padding: ' 1rem 3rem',
     textTransform: 'none',
     transition: 'all 0.4s ease',
     '&:hover': {
@@ -72,8 +75,8 @@ const styles = {
   },
   correctAnswerText: {
     color: 'green',
+    marginTop: '1.35rem',
     position: 'absolute',
-    top: '25%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     marginButton: '2rem',
@@ -85,9 +88,8 @@ const styles = {
   incorrectAnswerText: {
     color: 'red',
     position: 'absolute',
-    top: '25%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -0%)',
     marginButton: '2rem',
     '@media (max-width: 600px)': {
       top: '20%', 
@@ -223,6 +225,7 @@ const Quiz = () => {
             color='primary'
             onClick={() => window.location.reload()}
             sx={styles.nextButton}
+            style={{ marginTop: '2rem' }}
           >
             Restart Quiz
           </Button>

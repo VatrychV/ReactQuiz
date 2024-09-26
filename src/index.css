@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  display:absolute;
 }
 .bg-container {
   background-image: url('../public/media/background.jpg');
