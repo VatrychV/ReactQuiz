@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Typography, Box, Button } from '@mui/material'
-import questions from '../questions/questions'
+import questions from '../data/questions'
 
 const styles = {
   container: {
